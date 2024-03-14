@@ -1,0 +1,32 @@
+<h1>Juego de Adivinación de Números Aleatorios - DWEC05</h1>
+<hr>
+<h2>Parámetros de configuración del Juego</h2>
+
+<label>Nombre:</label><br/>
+<input type="text" [(ngModel)]="this.nombre"/><br/><br/>
+<label>Apellido:</label><br/>
+<input type="text" [(ngModel)]="this.apellido"/><br/><br/>
+<label>Rango de números a generar:</label><br/>
+<input type="number" [(ngModel)]="this.rango"/><br/><br/>
+<label>Número de intentos:</label><br/>
+<input type="number" [(ngModel)]="this.intentos"/><br/><br/>
+<br/>
+<button (click)="recogerDatos()">Recoger Datos</button>
+<div *ngIf="this.juegoListo">
+  <hr/>
+  <h2>Ongi etorri {{this.nombre}} {{this.apellido}}</h2>
+  <label>Introduce el número a Adivinar:</label><br/>
+  <input type="number" [(ngModel)]="this.apuesta" (keyup.enter)="jugar()"/><br/><br/>
+  <span>Intentos Restantes: {{this.intentosRestantes}}</span><br/><br/>
+  <span *ngIf="this.intentosRestantes < this.intentos">¿Has Adivinado?: {{this.acierto ? 'SIII    ' : 'NO'}}</span><button *ngIf="this.acierto" (click)="reiniciarJuego()">Reiniciar Juego</button><br/><br/>
+  <button (click)="jugar()">Enviar</button>
+  <div *ngIf="this.intentosRestantes==0">
+    <hr>
+    <span>"Se han acabado los intentos"</span>
+    <ul>
+      <li *ngFor="let x of this.apuestas">{{x}}</li>
+    </ul>
+    <hr>
+    <button (click)="reiniciarJuego()">Reiniciar Juego</button>
+  </div>
+</div>
