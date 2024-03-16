@@ -18,7 +18,7 @@
   <label>Introduce el número a Adivinar:</label><br/>
   <input type="number" [(ngModel)]="this.apuesta" (keyup.enter)="jugar()"/><br/><br/>
   <span>Intentos Restantes: {{this.intentosRestantes}}</span><br/><br/>
-  <span *ngIf="this.intentosRestantes < this.intentos">¿Has Adivinado?: {{this.acierto ? 'SIII    ' : 'NO'}}</span><button *ngIf="this.acierto" (click)="reiniciarJuego()">Reiniciar Juego</button><br/><br/>
+  <span *ngIf="this.intentosRestantes < this.intentos || this.acierto">¿Has Adivinado?: {{this.acierto ? 'SIII    ' : 'NO'}}</span><button *ngIf="this.acierto" (click)="reiniciarJuego()">Reiniciar Juego</button><br/><br/>
   <button (click)="jugar()">Enviar</button>
   <div *ngIf="this.intentosRestantes==0">
     <hr>

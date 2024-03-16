@@ -65,6 +65,7 @@ export class AppComponent {
 
   reiniciarJuego():void{
     this.juegoListo = false;
+    this.acierto = false;
     this.intentosRestantes = this.intentos;
   }
 
@@ -79,16 +80,8 @@ export class AppComponent {
         this.apuestas.push(this.apuesta);
         if (this.apuesta == this.random){
           this.acierto = true;
-          // if (confirm('Enhorabuena!! Ha ganado el juego. ¿Quiere jugar otra partida?')){
-          //   this.reiniciarJuego();
-          // }
         }else{
           this.intentosRestantes --;
-          // if (this.intentosRestantes==0){
-          //   if (confirm('No le quedan intentos. ¿Quiere jugar otra partida?')){
-          //     this.reiniciarJuego();
-          //   }
-          // }
         }
       } else{
         alert ('El número a adiviar tiene que ser un número entero entre 0 y ' + this.rango);
